@@ -1,6 +1,6 @@
 import {FC} from "react";
 import cn from './styles.module.sass'
-import deleteDev from "../../../assets/delete.svg"
+import deleteDev from "/public/delete.svg"
 import {Button} from "../../UI/Button/Button.tsx";
 import {DevType} from "../DevList.tsx";
 

@@ -2,7 +2,7 @@ import './styles/global.sass'
 import {DevList} from "./components/Developers/DevList.tsx";
 import cn from "./components/Developers/styles.module.sass";
 import {Form} from "./components/UI/Form/Form.tsx";
-import sensei from './assets/sensei.jpg'
+import sensei from '/public/sensei.jpg'
 import {useEffect} from "react";
 import {PostDataType, PostResponseType, postsApi} from "./api/posts-api.ts";
 import {AxiosResponse} from "axios";

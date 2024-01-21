@@ -2,7 +2,7 @@ import {ChangeEvent, MouseEvent, useState} from 'react';
 import cn from "../../Developers/styles.module.sass";
 import {Input} from "../Input/Input.tsx";
 import {Button} from "../Button/Button.tsx";
-import plus from "../../../assets/plus.svg";
+import plus from "/public/plus.svg";
 import {useDevStore} from "../../../store/store.ts";
 
 
