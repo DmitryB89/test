@@ -1,4 +1,4 @@
-import {ChangeEvent, MouseEvent, useState} from 'react';
+import {ChangeEvent, useEffect, useRef, useState} from 'react';
 import cn from "../../Developers/styles.module.sass";
 import {Input} from "../Input/Input.tsx";
 import {Button} from "../Button/Button.tsx";
@@ -7,16 +7,21 @@ import {useDevStore} from "../../../store/store.ts";
 
 
 export const Form = () => {
+
     const {addDeveloper} = useDevStore();
+    const inputRef = useRef<HTMLInputElement>(null)
+    useEffect(() => {
+        if (inputRef.current) {
+            inputRef.current.focus(); // Фокусируемся на поле ввода при загрузке компонента
+        }
+    }, []);
 
     const [dev, setDev] = useState({name: '', rank: '', branch: ''})
-    const onClickHandler = (e: MouseEvent) => {
-        e.preventDefault()
+    const onClickHandler = () => {
         const newDeveloper = {
             ...dev,
             id: Date.now(),
-
-        }
+                    }
         addDeveloper(newDeveloper)
         setDev({name: '', rank: '', branch: ''})
     }
@@ -41,8 +46,8 @@ export const Form = () => {
                     <option value="frontend">frontend</option>
                     <option value="backend">backend</option>
                 </select>
-                <Button className={cn.addBtn} onClick={onClickHandler}><img src={plus}
-                                                                            className={cn.plus}></img> Добавить</Button>
+                <Button type={"button"} className={cn.addBtn} onClick={onClickHandler}><img src={plus}
+                                                                                            className={cn.plus}></img> Добавить</Button>
             </div>
         </form>
     );

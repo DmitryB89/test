@@ -1,7 +1,7 @@
 import {create} from "zustand";
 import {DevType} from "../components/Developers/DevList.tsx";
 
-type DevStore = {
+export type DevStore = {
     devs: DevType[];
     dev: Omit<DevType, "id">;
     selectedFilter: string;
